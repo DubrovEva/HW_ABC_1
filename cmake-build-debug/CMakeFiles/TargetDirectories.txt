@@ -1,0 +1,3 @@
+/home/eva/projects/01-proc-c++/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/eva/projects/01-proc-c++/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/eva/projects/01-proc-c++/cmake-build-debug/CMakeFiles/task01.dir

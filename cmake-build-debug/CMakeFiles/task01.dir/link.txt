@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/task01.dir/regular_array.cpp.o CMakeFiles/task01.dir/diagonal_matrix.cpp.o CMakeFiles/task01.dir/square_matrix.cpp.o CMakeFiles/task01.dir/lower_triangular_matrix.cpp.o CMakeFiles/task01.dir/container.cpp.o CMakeFiles/task01.dir/main.cpp.o -o ../bin/task01 
