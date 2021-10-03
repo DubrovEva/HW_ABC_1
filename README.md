@@ -41,19 +41,25 @@ bool: 1
 **Struct regular_array**
 
 int n - 4, отступ 0;
-double * array - n * (n + 1) / 2 * sizeof(double) = n * (n + 1) * 2, отступ 4;
+
+double* array: n * (n + 1) / 2 * sizeof(double) = n * (n + 1) * 2, отступ 4;
+
 Всего: 4 + n * (n + 1) * 2.
 
 **Struct diagonal_matrix**
 
 int n - 4, отступ 0;
-double * array - n * sizeof(double) = n * 4, отступ 4;
+
+double* array: n * sizeof(double) = n * 4, отступ 4;
+
 Всего: 4 + 4 n.
 
 **Struct lower_triangular_matrix**
 
 int n - 4, отступ 0;
-double * array - n*4*4, отступ 4;
+
+double* array: n * 4 * 4, отступ 4;
+
 Всего: 4 + 16 n.
 
 **Struct square_matrix**
