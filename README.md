@@ -42,42 +42,44 @@ bool: 1
 
 int n - 4, отступ 0;
 
-double* array: n * (n + 1) / 2 * sizeof(double) = n * (n + 1) * 2, отступ 4;
+double* array: n * n * sizeof(double*) = n * n * 4 в оперативной памяти, 8 на стеке, отступ 4;
 
-Всего: 4 + n * (n + 1) * 2.
+Всего: 4 + n * n * 4 в оперативной памяти, 12 на стеке.
 
 **Struct diagonal_matrix**
 
 int n - 4, отступ 0;
 
-double* array: n * sizeof(double) = n * 4, отступ 4;
+double* array: n * sizeof(double) = n * 4 в оперативной памяти, 8 на стеке, отступ 4;
 
-Всего: 4 + 4 n.
+Всего: 4 + 4 n в оперативной памяти, 8 на стеке.
 
 **Struct lower_triangular_matrix**
 
 int n - 4, отступ 0;
 
-double* array: n * 4 * 4, отступ 4;
+double* array: n * (n + 1) / 2 * sizeof(double) = n * (n + 1) * 2 в оперативной памяти, 8 на стеке, отступ 4;
 
-Всего: 4 + 16 n.
+Всего: 4 + n * (n + 1) * 2 в оперативной памяти, 12 на стеке.
 
 **Struct square_matrix**
 
 enum key {REGULAR_ARRAY, DIAGONAL_MATRIX, LOWER_TRIANGULAR_MATRIX}: 4, отступ 0;
+
 key k: 4, отступ 4;
-union: 16, отступ 8;
 
-p - 16, отступ 4
+union: 12 (на стеке), отступ 8;
+r - 12, отступ 4;
+d - 12, отступ 4;
+l - 12, отступ 4;
 
-t - 16, отступ 4
+Всего: 16.
 
-s - 16, отступ 4
+**Struct conteiner**
 
-Итого: 20
+enum {max_len = 10000}: 4, отступ 0;
 
-Структура container
+int len: 4, отступ 4;
 
-len - 4, отступ 0
-cont - 80000, на куче 200000 (максимально), отступ 4
-Итого: 80004, на куче не более 200000
+square_matrix* cont[max_len] - 10000*sizeof(square_matrix) = 160000, отступ 8;
+Итого: 160008.
