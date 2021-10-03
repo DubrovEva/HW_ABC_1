@@ -22,3 +22,9 @@
 **Число интерфейсных модулей**: 6
 
 **Число модулей реализации**: 6
+
+**Результаты тестирования:**
+1. test_for_all_types_of_square_matrix.txt - 0.008s
+2. test_for_diagonal_matrix.txt - 0.004s
+3. test_for_lower_triangular_matrix.txt - 0.003s
+4. test_for_reqular_array.txt - 0.005s
