@@ -81,5 +81,6 @@ enum {max_len = 10000}: 4, отступ 0;
 
 int len: 4, отступ 4;
 
-square_matrix* cont[max_len] - 10000*sizeof(square_matrix) = 160000, отступ 8;
-Итого: 160008.
+square_matrix* cont[max_len] - 10000 * sizeof(square_matrix) = 160000, отступ 8;
+
+Всего: 160008.
