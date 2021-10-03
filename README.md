@@ -29,3 +29,49 @@
 3. test_for_lower_triangular_matrix - (real) 0.006s, (user) 0.006s, (sys) 0.000s
 4. test_for_reqular_array - (real) 0.008s, (user) 0.004s, (sys) 0.004s
 5. big_test_for_all_types - (real) 0.028s, (user) 0.024s, (sys) 0.004s
+
+## Архитектура вычислительной системы
+
+Память считаем в байтах.
+int: 4
+double: 4
+char: 1
+bool: 1
+
+**Struct regular_array**
+
+int n - 4, отступ 0;
+double * array - n * (n + 1) / 2 * sizeof(double) = n * (n + 1) * 2, отступ 4;
+Всего: 4 + n * (n + 1) * 2.
+
+**Struct diagonal_matrix**
+
+int n - 4, отступ 0;
+double * array - n * sizeof(double) = n * 4, отступ 4;
+Всего: 4 + 4 n.
+
+**Struct lower_triangular_matrix**
+
+int n - 4, отступ 0;
+double * array - n*4*4, отступ 4;
+Всего: 4 + 16 n.
+
+**Struct square_matrix**
+
+enum key {REGULAR_ARRAY, DIAGONAL_MATRIX, LOWER_TRIANGULAR_MATRIX}: 4, отступ 0;
+key k: 4, отступ 4;
+union: 16, отступ 8;
+
+p - 16, отступ 4
+
+t - 16, отступ 4
+
+s - 16, отступ 4
+
+Итого: 20
+
+Структура container
+
+len - 4, отступ 0
+cont - 80000, на куче 200000 (максимально), отступ 4
+Итого: 80004, на куче не более 200000
